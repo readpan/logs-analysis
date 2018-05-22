@@ -1,10 +1,10 @@
 # Logs Analysis
 
-> Dustin D'Avignon
+> ReadPan
 
 ## About
 
-This is the third project for the Udacity Full Stack Nanodegree. In this project, a large database with over a million rows is explored by building complex SQL queries to draw business conclusions for the data. The project mimics building an internal reporting tool for a newpaper site to discover what kind of articles the site's readers like. The database contains newspaper articles, as well as the web server log for the site.
+这是Udacity的全栈纳米学位工程。在这个工程中，有一个很大数据量的数据库。
 
 ## To Run
 
