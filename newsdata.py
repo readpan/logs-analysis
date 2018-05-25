@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import psycopg2
 
-
 # What are the most popular three articles of all time?
 query_1_title = ("What are the most popular three articles of all time?")
 query_1 = (
@@ -38,8 +37,12 @@ def connect(database_name="news"):
         db = psycopg2.connect("dbname={}".format(database_name))
         cursor = db.cursor()
         return db, cursor
-    except:
-        print ("Unable to connect to the database")
+
+    except sqlalchemy.exc.SQLAlchemyError:  # 或者更具体的异常
+        db.session.rollback()
+
+    finally:
+        print("Unable to connect to the database")
 
 
 def get_query_results(query):
@@ -54,7 +57,7 @@ def print_query_results(query_results):
     print (query_results[1])
     for index, results in enumerate(query_results[0]):
         print (
-            "\t", index+1, "-", results[0],
+            "\t", index + 1, "-", results[0],
             "\t - ", str(results[1]), "views")
 
 
